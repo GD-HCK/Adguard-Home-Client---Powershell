@@ -5,8 +5,10 @@ AdGuardHomeClient.ps1 - Client for Adguard home.
 .DESCRIPTION 
 Description PlaceHolder
 
-.PARAMETER PlaceHolder
-[Mandatory] Specifies the source paths for the copy. This paramenter is an Array.
+.PARAMETER URL
+[Mandatory] Specifies the URL for your AdGuardHome instance.
+.PARAMETER Credentials
+[Mandatory] Specifies the credentials Object of type [pscredentials] to be used to authenticate against the AdGuardHome instance.
 
 
 .EXAMPLE
