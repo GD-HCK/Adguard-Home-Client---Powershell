@@ -12,7 +12,7 @@ Description PlaceHolder
 .EXAMPLE
 
 Example Title PlaceHolder
-.\Client.ps1 -URL [String] -Username [String] -Password [pscredential]
+.\Client.ps1 -URL [String] -Credentials [pscredential]
 
 .NOTES
 Created by: Giulio Dalicco
@@ -45,13 +45,8 @@ param (
 
     [Parameter(Mandatory)]
     [ValidateNotNullOrEmpty()]
-    [String]
-    $Username,
-
-    [Parameter(Mandatory)]
-    [ValidateNotNullOrEmpty()]
-    [securestring]
-    $Password
+    [pscredential]
+    $Credentials
 )
 
 begin {
@@ -70,6 +65,9 @@ begin {
     #>
     #$Password = ConvertTo-Securestring -String $Password -AsPlainText -Force #for testing only
     
+    $Username = $Credentials.UserName
+    $Password = $Credentials.Password
+
     # Web request components
     $BASE_URL = "$URL/control"
     $TagsURL = ([System.Uri]::new("$BASE_URL/clients")).AbsoluteUri
