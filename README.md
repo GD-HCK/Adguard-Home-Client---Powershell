@@ -13,7 +13,7 @@
     $Password = Read-Host -Prompt "Type your Adguard Password" -AsSecureString
     $Credentials = [pscredential]::new($username,$password)
     $URL = 'https://adguard.example.com'
-    .\Client.ps1 -URL $URL -Credentials $Credentials
+    .\AdGuardClient.ps1 -URL $URL -Credentials $Credentials
     ```
 
 ## TODO
