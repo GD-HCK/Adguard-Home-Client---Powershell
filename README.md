@@ -19,5 +19,6 @@
 ## TODO
 Issue | Resolved |
 --- | --- | 
+Initial Prototype and structure | ~~`Done`~~ |
 Read Api Definitions From Yaml | `To Do` |
 Complete All Api Endpoints | `In Progress`
