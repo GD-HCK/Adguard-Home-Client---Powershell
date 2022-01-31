@@ -52,8 +52,11 @@ param (
 begin {
 
     #### Import Yml API Definitions ####
-    #Import-Module ConvertFrom-Yaml
-    #$Definitions = Get-Content  -Path "$PSScriptRoot\AdGuard.yml" -Raw | ConvertFrom-Yaml
+    ##Import-Module ConvertFrom-Yaml
+    $Yaml = (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/openapi/openapi.yaml" -Method GET).RawContent
+    $Yaml = $Yaml.Remove(0, $Yaml.IndexOf("'openapi':"))
+    $Yaml | Set-Content -Path "$PSScriptRoot\AdGuard.Yaml" # Backup Locally
+    $Definitions = $Yaml | ConvertFrom-Yaml
         
     #Use This For Testing
     <#
